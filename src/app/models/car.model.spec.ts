@@ -24,8 +24,9 @@ export interface Job {
   fuelTankCapacity?:number;
   curbWeight?:number;
   length?:number;
-  carType?:string; //bike, kei, compact, sedan, hatchback, suv, truck, minivan, bus
+  carType?:string; //bike, kei, compact, sedan, hatchback, suv, truck, minivan, bus, supercar, hypercar
   bodyType?:string; //coupe, sedan
+  convertible?:boolean;
   isSport?:boolean;
   problems?:Array<any>;
   recalls?:Array<any>;
@@ -45,4 +46,8 @@ export interface Job {
   triptonic?:boolean;
   headlights?:string;
   hud?:boolean;
+  userManualLink?:string;
+  reviews?:Array<any>;
+  satisfactionScore?:number;
+  images?:Array<any>;
 }
