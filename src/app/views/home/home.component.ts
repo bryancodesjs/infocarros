@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  searching = false;
+
+  cars = [
+    {},
+    {},
+    {},
+    {}
+  ];
   constructor() { }
 
   ngOnInit(): void {
   }
 
-}
+  search(){
+    this.searching = true;
+  }
+} 

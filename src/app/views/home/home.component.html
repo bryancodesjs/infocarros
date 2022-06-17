@@ -9,14 +9,16 @@
 </div>
 
 <!-- hero -->
-<div class="container-fluid hero">
+<div [class]="searching? 'container-fluid searching-bg' : 'container-fluid hero'">
     <div class="container-lg d-flex justify-content-center">
         <div class="pt-5 pb-5 text-center w-100">
-            <h1 class="text-uppercase text-light brand-text"><strong>Elige tu vehiculo</strong></h1>
-            <h4 class="text-light">Aprende todo lo que no sabias sobre tu auto</h4>
-            <div class="row w-100 mt-5 g-2">
+            <div class="mb-5" *ngIf="!searching">
+                <h1 class="text-uppercase text-light brand-text"><strong>Elige tu vehiculo</strong></h1>
+                <h4 class="text-light">Aprende todo lo que no sabias sobre tu auto</h4>
+            </div>
+            <div class="row w-100 g-2">
                 <div class="col-lg-3">
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-2">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
                             <option selected disabled>Año</option>
                             <option value="1">Ford</option>
@@ -27,7 +29,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-2">
                         <select disabled class="form-select" id="floatingSelect" aria-label="Floating label select example">
                             <option selected disabled>Elige una marca</option>
                             <option value="1">Ford</option>
@@ -38,7 +40,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-2">
                         <select disabled class="form-select" id="floatingSelect" aria-label="Floating label select example">
                             <option selected disabled>Modelo</option>
                             <option value="1">Ford</option>
@@ -49,7 +51,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2">
-                    <div class="form-group pb-3 h-100">
+                    <div class="form-group pb-2 h-100">
                         <button disabled class="btn btn-danger w-100 h-100">Buscar</button>
                     </div>
                 </div>
@@ -58,21 +60,66 @@
     </div>
 </div>
 
-<!-- rankings -->
-<div class="container-fluid">
-    <div class="container-lg d-flex justify-content-center">
-        <div class="pt-5 pb-5 w-100">
-            <h3 class="text-uppercase brand-text"><strong>Ranking</strong></h3>
-        </div>
-    </div>
-</div>
-
 <!-- barra de anuncios inferior  -->
-<div class="container-fluid deal-bg text-light">
+<div class="container-fluid deal-bg text-light d-none">
     <div class="container-lg d-flex justify-content-center">
         <div class="d-flex flex-wrap p-2 align-items-center">
             <h5 class="me-3 mb-0 text-uppercase"><strong>descuentos <span class="text-danger brand-text">calientes</span></strong></h5>
             <button class="btn btn-light btn-secondary">Ver ahora</button>
+        </div>
+    </div>
+</div>
+
+<!-- rankings -->
+<div class="container-fluid" *ngIf="!searching">
+    <div class="container-lg pt-5 pb-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="w-100">
+                    <h3 class="text-uppercase brand-text"><strong>Marcas</strong></h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <ul class="list-unstyled">
+                    <li><a (click)="search()">Audi</a></li>
+                    <li><a (click)="search()">Ford</a></li>
+                    <li><a (click)="search()">Toyota</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- results -->
+<div class="container-fluid" *ngIf="searching">
+    <div class="container-lg pt-5 pb-5">
+        <div class="row">
+            <div class="col-12">
+                <h4>Buscando <strong>"Audi R8 2022"</strong></h4>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card mb-3" style="border-radius:10px!important;" *ngFor="let car of cars">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <img width="200" 
+                                src="https://cars.usnews.com/pics/size/350x262/images/Auto/izmo/i159615112/2022_audi_a3_angularfront.jpg" 
+                                alt="Foto de cars.usnews.com">
+                            </div>
+                            <div class="col-lg-4 details mt-3">
+                                <h5>Audi R8 2022</h5>
+                                <p>MSRP: <strong>$34,000 USD</strong></p>
+                                <p>Gasolina - V6</p>
+                                <p>Automático</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
