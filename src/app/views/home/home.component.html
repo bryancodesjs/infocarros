@@ -1,5 +1,5 @@
 <!-- barra de anuncios superior -->
-<div class="container-fluid dark-bg text-light">
+<div class="container-fluid dark-bg text-light" *ngIf="!searching">
     <div class="container-lg d-flex justify-content-center">
         <div class="d-flex flex-wrap p-2 align-items-center">
             <p class="me-3 mb-0 text-uppercase"><strong>¡Desbloquea ofertas únicas!</strong></p>
@@ -9,7 +9,7 @@
 </div>
 
 <!-- hero -->
-<div [class]="searching? 'container-fluid searching-bg' : 'container-fluid hero'">
+<div [class]="searching? 'container-fluid searching-bg' : 'container-fluid hero'" *ngIf="!searching">
     <div class="container-lg d-flex justify-content-center">
         <div class="pt-5 pb-5 text-center w-100">
             <div class="mb-5" *ngIf="!searching">
@@ -97,7 +97,10 @@
     <div class="container-lg pt-5 pb-5">
         <div class="row">
             <div class="col-12">
-                <h4>Buscando <strong>"Audi R8 2022"</strong></h4>
+                <div class="d-flex align-items-center">
+                    <a class="me-3" href=""><img width="14" src="/assets/fontawesome/chevron-left-solid.svg" alt=""></a>
+                    <h4 class="mb-0">Mostrando 14 <strong>"Audi R8 2022"</strong></h4>
+                </div>
             </div>
         </div>
         <div class="row mt-4">

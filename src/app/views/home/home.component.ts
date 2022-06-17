@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  searching = false;
+  searching = true;
 
   cars = [
     {},

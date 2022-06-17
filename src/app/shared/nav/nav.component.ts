@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
+  showCombustibles = false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  toggle(){
+    if(this.showCombustibles){
+      this.showCombustibles = false;
+      console.log('hide')
+    } else {
+      this.showCombustibles = true;
+      console.log('show')
+    }
+  }
 }
